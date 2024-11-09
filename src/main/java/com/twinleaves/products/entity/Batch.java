@@ -14,8 +14,7 @@ import java.time.LocalDate;
 public class Batch {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer batchId;
+    private String batchId;
 
     private Integer Mrp;
 

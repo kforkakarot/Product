@@ -8,14 +8,14 @@ import com.twinleaves.products.entity.Product;
 public interface ProductService {
 
     Product addProduct(ProductDTO productdto);
-    Product getProductById(Integer id);
+    Product getProductById(String id);
 
 
     Batch addBatch(Batch batch);
-    Batch getBatchById(Integer id);
+    Batch getBatchById(String id);
 
 
     Gtin addGtin(Gtin gtin);
-    Gtin getGtinById(Integer id);
+    Gtin getGtinById(String id);
 
 }

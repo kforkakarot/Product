@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"productName\" : \"Mixer\"\r\n}",
+					"raw": "{\r\n    \"productId\": \"P1\",\r\n    \"productName\" : \"Mixer\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -31,7 +31,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Mrp\" : 25,\r\n    \"sp\" : 20,\r\n    \"purchasePrice\" : 15,\r\n    \"availableQuantity\": 10,\r\n    \"inwardedOn\" : \"2024-11-09\"\r\n\r\n}",
+					"raw": "{\r\n    \"batchId\": \"B1\",\r\n    \"Mrp\" : 25,\r\n    \"sp\" : 20,\r\n    \"purchasePrice\" : 15,\r\n    \"availableQuantity\": 10,\r\n    \"inwardedOn\" : \"2024-11-09\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,7 +49,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"gtin\" : \"G1\"\r\n\r\n}",
+					"raw": "{\r\n    \"id\" : \"1\",   \r\n    \"gtin\" : \"G1\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,7 +91,26 @@
 			"name": "getProductById",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/products/product?id=P1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"product"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "P1"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -100,7 +119,25 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/api/v1/products/gtin/1"
+				"url": {
+					"raw": "localhost:8080/api/v1/products/gtin?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"gtin"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -108,7 +145,8 @@
 			"name": "getGtinWithBatches",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": "localhost:8080/api/v1/gtin/product"
 			},
 			"response": []
 		}

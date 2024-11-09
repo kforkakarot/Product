@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface GtinRepository extends JpaRepository<Gtin, Integer> {
+public interface GtinRepository extends JpaRepository<Gtin, String> {
 
     Optional<Gtin> findByGtin(String gtin);
 }

@@ -42,8 +42,8 @@ public class ProductController {
 
 
 
-    @RequestMapping(path = "/product/{id}", method = GET)
-    public ResponseEntity<?> getProductById(@PathVariable Integer id){
+    @RequestMapping(path = "/product", method = GET)
+    public ResponseEntity<?> getProductById(@RequestParam String id){
         try{
             return new ResponseEntity(productService.getProductById(id), HttpStatus.OK);
         }catch(ProductNotFoundException e){
@@ -54,8 +54,8 @@ public class ProductController {
 
 
 
-    @RequestMapping(path = "/batch/{id}", method = GET)
-    public ResponseEntity<?> getBatchById(@PathVariable Integer id){
+    @RequestMapping(path = "/batch", method = GET)
+    public ResponseEntity<?> getBatchById(@RequestParam String id){
         try{
             return new ResponseEntity(productService.getBatchById(id), HttpStatus.OK);
         }catch(BatchNotFoundException e){
@@ -65,8 +65,8 @@ public class ProductController {
     }
 
 
-    @RequestMapping(path = "/gtin/{id}", method = GET)
-    public ResponseEntity<?> getGtinById(@PathVariable Integer id){
+    @RequestMapping(path = "/gtin", method = GET)
+    public ResponseEntity<?> getGtinById(@RequestParam String id){
         try{
             return new ResponseEntity(productService.getGtinById(id), HttpStatus.OK);
         }catch(GtinNotFoundException e){

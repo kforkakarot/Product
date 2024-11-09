@@ -27,13 +27,14 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product addProduct(ProductDTO productdto) {
          Product product= new Product();
+         product.setProductId(productdto.getProductId());
          product.setProductName(productdto.getProductName());
          product.setCreatedOn(LocalDate.now());
          return productRepository.save(product);
     }
 
     @Override
-    public Product getProductById(Integer id) throws ProductNotFoundException {
+    public Product getProductById(String id) throws ProductNotFoundException {
         if(productRepository.findById(id).isPresent()) return productRepository.findById(id).get();
         throw new ProductNotFoundException("No such Product found");
     }
@@ -44,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Batch getBatchById(Integer id)  throws BatchNotFoundException {
+    public Batch getBatchById(String id)  throws BatchNotFoundException {
         if(batchRepository.findById(id).isPresent()) return batchRepository.findById(id).get();
         throw new BatchNotFoundException("No such Batch found");
     }
@@ -55,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Gtin getGtinById(Integer id) throws GtinNotFoundException{
+    public Gtin getGtinById(String id) throws GtinNotFoundException{
         if(gtinRepository.findById(id).isPresent())return gtinRepository.findById(id).get();
         throw new GtinNotFoundException("No such Gtin found");
     }
