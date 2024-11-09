@@ -12,7 +12,7 @@ public interface ProductService {
 
 
     Batch addBatch(Batch batch);
-    Batch getBatchById(String id);
+    Batch getBatchById(Integer id);
 
 
     Gtin addGtin(Gtin gtin);

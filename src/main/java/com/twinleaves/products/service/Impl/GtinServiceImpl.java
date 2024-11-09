@@ -24,13 +24,13 @@ public class GtinServiceImpl implements GtinService {
             FROM Gtin g
             JOIN Product p ON g.id = p.productId
             JOIN Batch b ON b.batchId = p.productId
-            WHERE b.available_quantity > 0
-               OR (b.available_quantity <= 0 AND b.inwarded_on = (
-                    SELECT MAX(b2.inwarded_on)
-                    FROM batch b2
-                    WHERE b2.product_id = p.product_id AND b2.available_quantity <= 0
+            WHERE b.availableQuantity > 0
+               OR (b.availableQuantity <= 0 AND b.inwardedOn = (
+                    SELECT MAX(b2.inwardedOn)
+                    FROM Batch b2
+                    WHERE b2.batchId = p.productId AND b2.availableQuantity <= 0
                   ))
-            ORDER BY g.gtin, b.inwarded_on
+            ORDER BY g.gtin, b.inwardedOn
         """;
 
         Query nativeQuery = entityManager.createQuery(sqlQuery);

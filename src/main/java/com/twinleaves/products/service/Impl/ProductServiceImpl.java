@@ -44,7 +44,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Batch getBatchById(String id)  throws BatchNotFoundException {
+    public Batch getBatchById(Integer id)  throws BatchNotFoundException {
         if(batchRepository.findById(id).isPresent()) return batchRepository.findById(id).get();
         throw new BatchNotFoundException("No such Batch found");
     }

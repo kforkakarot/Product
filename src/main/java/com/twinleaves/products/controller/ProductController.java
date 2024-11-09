@@ -54,8 +54,8 @@ public class ProductController {
 
 
 
-    @RequestMapping(path = "/batch", method = GET)
-    public ResponseEntity<?> getBatchById(@RequestParam String id){
+    @RequestMapping(path = "/batch/{id}", method = GET)
+    public ResponseEntity<?> getBatchById(@PathVariable Integer id){
         try{
             return new ResponseEntity(productService.getBatchById(id), HttpStatus.OK);
         }catch(BatchNotFoundException e){
